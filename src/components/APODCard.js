@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Media from "./Media";
 
 const APODCard = props => {
   //const date = props.date !== undefined ? props.date : new Date();
@@ -27,7 +28,7 @@ const APODCard = props => {
   return (
     <div>
       <h2>{title}</h2>
-      <img src={mediaUrl} />
+      <Media mediaTitle={title} mediaType={mediaType} src={mediaUrl} />
       <h3>Explanation</h3>
       <p>{explanation}</p>
     </div>
