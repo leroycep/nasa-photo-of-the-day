@@ -15,6 +15,7 @@ const APODCard = props => {
         params: { api_key: "DEMO_KEY" }
       })
       .then(res => {
+        console.log(res);
         setTitle(res.data.title);
         setMediaType(res.data.media_type);
         setMediaUrl(res.data.url); // TODO: HD url?

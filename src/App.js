@@ -5,11 +5,8 @@ import APODCard from "./components/APODCard.js";
 function App() {
   return (
     <div className="App">
-      <p>
-        Read through the instructions in the README.md file to build your NASA
-        app! Have fun 🚀!
-      </p>
-      <APODCard/>
+      <h1>Astronomy Picture Of the Day</h1>
+      <APODCard />
     </div>
   );
 }
