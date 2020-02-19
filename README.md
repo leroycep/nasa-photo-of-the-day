@@ -80,9 +80,9 @@ Follow these steps for completing your project.
 
 **Step 2 - File structure**
 
-- [ ] Take a look at your planned components. Create the folders and files you
+- [x] Take a look at your planned components. Create the folders and files you
       need for each component.
-- [ ] Leave most of them blank for now - you need to get your data from the API
+- [x] Leave most of them blank for now - you need to get your data from the API
       before you can really get these built.
 
 **Step 3 - Fetching the Data**
