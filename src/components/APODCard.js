@@ -10,7 +10,9 @@ const Container = styled.div`
 `;
 
 const APODCard = props => {
-  //const date = props.date !== undefined ? props.date : new Date();
+  const initial_date =
+    props.date !== undefined ? props.date : formatDate(new Date());
+  const [date, setDate] = useState(initial_date);
 
   const [title, setTitle] = useState("title");
   const [mediaType, setMediaType] = useState("");
@@ -20,7 +22,7 @@ const APODCard = props => {
   useEffect(() => {
     axios
       .get("https://api.nasa.gov/planetary/apod", {
-        params: { api_key: "DEMO_KEY" }
+        params: { api_key: "DEMO_KEY", date: date }
       })
       .then(res => {
         console.log(res);
@@ -30,10 +32,15 @@ const APODCard = props => {
         setExplanation(res.data.explanation);
       })
       .catch(err => console.log("Could not get picture of the day", err));
-  }, []);
+  }, [date]);
 
   return (
     <Container>
+      <input
+        type="date"
+        onInput={ev => setDate(formatDate(new Date(ev.target.value)))}
+        placeholder={date}
+      />
       <h2>{title}</h2>
       <Media mediaTitle={title} mediaType={mediaType} src={mediaUrl} />
       <h3>Explanation</h3>
@@ -41,5 +48,11 @@ const APODCard = props => {
     </Container>
   );
 };
+
+function formatDate(date) {
+  const month = (date.getUTCMonth() + 1).toString().padStart(2, 0);
+  const dateOfMonth = date.getUTCDate().toString().padStart(2, 0);
+  return `${date.getUTCFullYear()}-${month}-${dateOfMonth}`;
+}
 
 export default APODCard;
