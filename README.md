@@ -125,7 +125,7 @@ via props so you can render it on the DOM.
 ## _MVP Requirements:_
 
 - [x] Use the effect hook to fetch the APOD data when the component mounts.
-- [ ] Display the APOD data in different components that are composed together
+- [x] Display the APOD data in different components that are composed together
       to build your UI.
 
 ## Pro Tips:
