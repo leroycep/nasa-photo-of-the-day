@@ -11,7 +11,7 @@ const Container = styled.div`
 
 const APODCard = props => {
   const initial_date =
-    props.date !== undefined ? props.date : formatDate(new Date());
+    props.date !== undefined ? props.date : new Date();
   const [date, setDate] = useState(initial_date);
 
   const [title, setTitle] = useState("title");
@@ -22,7 +22,7 @@ const APODCard = props => {
   useEffect(() => {
     axios
       .get("https://api.nasa.gov/planetary/apod", {
-        params: { api_key: "DEMO_KEY", date: date }
+        params: { api_key: "DEMO_KEY", date: formatDate(date) }
       })
       .then(res => {
         console.log(res);
@@ -38,8 +38,8 @@ const APODCard = props => {
     <Container>
       <input
         type="date"
-        onInput={ev => setDate(formatDate(new Date(ev.target.value)))}
-        placeholder={date}
+        onInput={ev => setDate(new Date(ev.target.value))}
+        placeholder={formatDate(date)}
       />
       <h2>{title}</h2>
       <Media mediaTitle={title} mediaType={mediaType} src={mediaUrl} />
