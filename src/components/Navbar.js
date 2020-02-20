@@ -10,7 +10,7 @@ const Container = styled.div`
 `;
 
 const Button = styled.button`
-width: 100px;
+  width: 100px;
 `;
 
 export default function Navbar(props) {
