@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import styled from "styled-components";
 import Media from "./Media";
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 const APODCard = props => {
   //const date = props.date !== undefined ? props.date : new Date();
@@ -26,12 +33,12 @@ const APODCard = props => {
   }, []);
 
   return (
-    <div>
+    <Container>
       <h2>{title}</h2>
       <Media mediaTitle={title} mediaType={mediaType} src={mediaUrl} />
       <h3>Explanation</h3>
       <p>{explanation}</p>
-    </div>
+    </Container>
   );
 };
 
