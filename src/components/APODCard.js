@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styled from "styled-components";
+import Navbar, { formatDate } from "./Navbar";
 import Media from "./Media";
 
 const Container = styled.div`
@@ -10,8 +11,7 @@ const Container = styled.div`
 `;
 
 const APODCard = props => {
-  const initial_date =
-    props.date !== undefined ? props.date : new Date();
+  const initial_date = props.date !== undefined ? props.date : new Date();
   const [date, setDate] = useState(initial_date);
 
   const [title, setTitle] = useState("title");
@@ -36,11 +36,7 @@ const APODCard = props => {
 
   return (
     <Container>
-      <input
-        type="date"
-        onInput={ev => setDate(new Date(ev.target.value))}
-        placeholder={formatDate(date)}
-      />
+      <Navbar date={date} setDate={setDate} />
       <h2>{title}</h2>
       <Media mediaTitle={title} mediaType={mediaType} src={mediaUrl} />
       <h3>Explanation</h3>
@@ -48,11 +44,5 @@ const APODCard = props => {
     </Container>
   );
 };
-
-function formatDate(date) {
-  const month = (date.getUTCMonth() + 1).toString().padStart(2, 0);
-  const dateOfMonth = date.getUTCDate().toString().padStart(2, 0);
-  return `${date.getUTCFullYear()}-${month}-${dateOfMonth}`;
-}
 
 export default APODCard;
