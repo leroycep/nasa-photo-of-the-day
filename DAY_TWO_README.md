@@ -45,9 +45,9 @@ Follow these steps for completing your project.
 
 ## _MVP Requirements:_
 
-- [ ] Refactor your project using a component library that was covered in class
+- [x] Refactor your project using a component library that was covered in class
       (Reactstrap or styled-components).
-- [ ] Implement and use at least a few styled components to beautify your
+- [x] Implement and use at least a few styled components to beautify your
       project.
 
 ## Stretch Problems
